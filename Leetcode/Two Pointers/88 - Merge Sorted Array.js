@@ -32,6 +32,33 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
+
+ let nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+
 var merge = function(nums1, m, nums2, n) {
-    
+
+    // Keeps track of the last index of nums1 as we move backwards
+    let currentTail = m + n - 1
+
+    // Merges arrays until we reach the end of either nums1 or nums2
+    while(m > 0 && n > 0){
+        if (nums1[m - 1] > nums2[n - 1]){
+            nums1[currentTail] = nums1[m - 1];
+            m -= 1;
+        } else {
+            nums1[currentTail] = nums2[n - 1];
+            n -= 1;
+        }
+        currentTail -= 1;
+    }
+
+    // If we reach the end of nums1 before nums2, then we fill the rest of nums1 with the elements of nums2
+    while (n > 0){
+        nums1[last] = nums2[n - 1];
+        n -= 1;
+        currentTail -= 1;
+    }
 };
+
+
+
