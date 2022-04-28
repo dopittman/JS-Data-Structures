@@ -23,6 +23,27 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 */
 
 var maxProfit = function(prices) {
+    let min = 0
+    let max = 0
+    let currentProfit = 0
 
+    for(let i = 0; i < prices.length; i++){
+        if(prices[i] > prices[max]){
+            max = i
+            if(prices[max] - prices[min] > currentProfit){
+                currentProfit = prices[max] - prices[min]
+            }
+        } else if(prices[i] < prices[min]){
+            min = i;
+            max = i
+        }
+    }
+
+    return currentProfit
+/*
+Runtime: 89 ms, faster than 78.99% of JavaScript online submissions for Best Time to Buy and Sell Stock.
+Memory Usage: 51.7 MB, less than 74.47% of JavaScript online submissions for Best Time to Buy and Sell Stock.
+*/
+    
 };
 
