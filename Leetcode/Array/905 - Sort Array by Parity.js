@@ -24,6 +24,22 @@
 
 
 
-function sortArrayByParity(){
+function sortArrayByParity(nums){
+    let left = 0;
+    let right = nums.length - 1;
+    let parityArr = []
     
+    for(let i = 0; i < nums.length; i++){
+        if (nums[i] % 2 == 0){
+            parityArr[left] = nums[i]
+            left++
+        } else {
+            parityArr[right] = nums[i];
+            right--
+        }
+    }
+    return parityArr;
 }
+
+let testArr = [3,1,2,4]
+console.log(sortArrayByParity(testArr))
