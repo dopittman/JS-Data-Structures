@@ -24,3 +24,16 @@ Explanation: There are three ways to climb to the top.
 3. 2 steps + 1 step
 */
 
+var climbStairs = function(n) {
+    let one = 1;
+    let two = 1;
+
+    for(let i = 1; i <= n-1; i++){
+        let temp = one;
+        one = one+two;
+        two = temp;
+    }
+    return one;
+};
+
+console.log(climbStairs(5));
