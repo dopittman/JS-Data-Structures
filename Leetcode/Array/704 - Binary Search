@@ -1,0 +1,22 @@
+let nums = [-1,0,3,5,9,12], target = 9
+
+var search = function(nums, target) {
+	console.log(1)
+    let leftInd = 0;
+    let rightInd = nums.length -1
+    let midIndex = Math.floor((leftInd + rightInd) / 2)
+    
+    while(leftInd <= rightInd){
+    console.log( rightInd)
+        if(nums[midIndex] == target){
+            return midIndex
+            break
+        } else if(target > nums[midIndex]){
+            leftInd = midIndex
+        } else {
+            rightInd = midIndex
+        }
+    } return -1
+};
+
+console.log(search(nums, target))
