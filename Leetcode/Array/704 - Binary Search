@@ -1,20 +1,21 @@
-let nums = [-1,0,3,5,9,12], target = 9
+let nums = [1,3,5,6] 
+let target = 5
 
 var search = function(nums, target) {
-	console.log(1)
-    let leftInd = 0;
-    let rightInd = nums.length -1
-    let midIndex = Math.floor((leftInd + rightInd) / 2)
+    let left = 0;
+    let right = nums.length
     
-    while(leftInd <= rightInd){
-    console.log( rightInd)
-        if(nums[midIndex] == target){
-            return midIndex
-            break
-        } else if(target > nums[midIndex]){
-            leftInd = midIndex
+    while(left < right){
+        console.log(`left: ${left}`)
+        console.log(`right ${right}`)
+        let mid = Math.floor(left + (right - left) / 2)
+        console.log(`mid: ${mid}`)
+        if(nums[mid] === target){
+            return mid
+        } else if(target > nums[mid]){
+            left = mid + 1
         } else {
-            rightInd = midIndex
+            right = mid
         }
     } return -1
 };
