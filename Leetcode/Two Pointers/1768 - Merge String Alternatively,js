@@ -1,0 +1,32 @@
+/*
+
+You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
+
+Return the merged string.
+
+*/
+
+var mergeAlternately = function(word1, word2) {
+    let solution = ''
+    let w1Idx = 0
+    let w2Idx = 0
+
+    // While both words have letters left, add the next letter from each word to the solution
+    while(w1Idx < word1.length && w2Idx < word2.length){
+        solution += word1[w1Idx]
+        solution += word2[w2Idx]
+        w1Idx++
+        w2Idx++        
+    }
+
+    // If one of the words is longer than the other, add the rest of the longer word to the solution
+    if(w1Idx < word1.length){
+        solution += word1.slice(w1Idx)
+    }
+    if(w2Idx < word2.length){
+        solution += word2.slice(w2Idx)
+    }
+    return solution
+};
+
+console.log(mergeAlternately('abc', 'pqr'))
